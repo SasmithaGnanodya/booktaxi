@@ -1,0 +1,668 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #012c60;
+  padding: 15px 50px;
+  color: white;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.header-logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transition correctly to the entire link */
+.header-links h1 a {
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* Ensures transform works properly */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.header-links h1 a:hover {
+  color: #e2ae3f;
+  transform: scale(1.1); /* Smooth zoom-in effect */
+}
+
+/* Hide Menu Toggle Checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  header {
+    height: 80px;
+    padding: 15px 50px;
+  }
+
+  /* Show Menu Icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide Navigation Links Initially */
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #012c60;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .header-links h1 {
+    margin: 10px 0;
+  }
+
+  /* Show Dropdown When Checkbox is Checked */
+  .menu-toggle:checked + .menu-icon + .header-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: -20px;
+  }
+}
+
+/* Image Section */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 440px; /* Default height for large screens */
+  margin-top: 90px; /* To ensure it appears below the header */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180%;
+  background-size: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+  background-position: center;
+  opacity: 0.35;
+  background-image: url("../../dxk1acp76n912.cloudfront.net/images/free-tourist-sim-card-sri-lanka.jpg"); /* Set the image you want to keep */
+  margin-top: -30px;
+}
+
+/* Overlay Text and Button */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #000000;
+}
+
+.overlay h2 {
+  font-size: 3rem;
+  font-weight: bold !important;
+  margin-bottom: 45px;
+  font-family: "Lato", sans-serif;
+}
+
+.book-tour-btn {
+  background-color: #012c60;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  font-size: 1.1rem; /* Adjust font size for better scaling */
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block; /* Ensures proper sizing */
+  transition: background-color 0.3s ease;
+}
+
+.book-tour-btn:hover {
+  background-color: #d48c2a;
+}
+
+@media (max-width: 768px) {
+  .book-tour-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-tour-btn {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+}
+
+/* Make the Image Container Responsive */
+@media screen and (max-width: 1024px) {
+  .image-container {
+    margin-top: 80px !important;
+    height: 340px !important; /* Adjust height for tablet screens */
+  }
+
+  .overlay h2 {
+    font-size: 1.5rem; /* Smaller font size for mobile devices */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-container {
+    margin-top: 80px;
+    height: 240px !important;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem; /* Adjust font size for smaller devices */
+  }
+
+  .book-tour-btn {
+    font-size: 1rem; /* Smaller button on small screens */
+  }
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  margin-top: -20px;
+}
+
+.scrolling-text-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  position: relative;
+  z-index: 10;
+  margin-top: -30px;
+}
+
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite;
+  font-size: 22px;
+  font-weight: bolder;
+  color: #012c60; /* text color */
+}
+.special-deal {
+  color: #ff0000;
+  font-weight: bold;
+  display: inline;
+  padding: 0 8px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.why-choose-us h2 {
+  font-size: 33px;
+  color: #012c60;
+  margin-bottom: 40px;
+  margin-top: 15px;
+}
+
+/* Grid Layout */
+.why-choose-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Individual Item Styling */
+.why-choose-us-item {
+  background: #e7f3fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.why-choose-us-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Icons */
+.why-choose-us-item i {
+  font-size: 27px;
+  color: #e2ae3f;
+}
+
+.why-choose-us-item p {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.sim-clean-section {
+  background: url(../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965957/watermarkwhite_gsxzae.png)
+    no-repeat center center;
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.sim-clean-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sim-clean-title {
+  font-size: 32px;
+  color: #012c60;
+  margin-bottom: 10px;
+  margin-top: -20px;
+}
+
+.sim-clean-intro {
+  font-size: 1.3em;
+  color: #6c757d;
+  margin-bottom: 40px;
+}
+
+.sim-clean-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.sim-clean-card {
+  background-color: #fcfce1;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 480px;
+  flex: 1 1 40%;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.sim-clean-card:hover {
+  transform: translateY(-5px);
+}
+
+.sim-icon {
+  font-size: 2em;
+  color: #ff5722;
+  margin-bottom: 15px;
+}
+
+.sim-clean-card h3 {
+  font-size: 1.4em;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.sim-clean-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.sim-clean-footer {
+  margin-top: 40px;
+}
+
+.sim-clean-footer p {
+  font-size: 1.3em;
+  color: #000000;
+  margin-bottom: 15px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+.sim-feature-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.sim-feature-card {
+  flex: 1 1 250px;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sim-feature-card h4 {
+  font-size: 1.1rem;
+}
+
+.sim-feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #2dbf64;
+  margin-bottom: 1rem;
+}
+
+.sim-clean-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #012c60;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+.sim-clean-btn:hover {
+  background-color: #e2ae3f;
+}
+
+.reviews {
+  position: relative;
+  background: url("../../dxk1acp76n912.cloudfront.net/images/review.png")
+    no-repeat center center/cover;
+  text-align: center;
+  margin: 1px 0;
+  padding: 20px;
+  color: white; /* Keeps your text visible over dark background */
+  z-index: 1;
+  overflow: hidden;
+}
+
+.reviews::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Adjust 0.4 for more/less darkness */
+  z-index: -1;
+}
+
+.reviews h2 {
+  font-size: 33px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  animation: rotateReviews 25s linear infinite; /* Rotate the reviews container */
+}
+
+.review-card {
+  background-color: #e7e7e7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 350px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards; /* Fade in effect */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reviewer-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.review-card h3 {
+  font-size: 18px;
+  margin: 0;
+  color: #494949;
+}
+
+.review-date {
+  font-size: 14px;
+  color: #777;
+}
+
+.rating {
+  font-size: 14px;
+  color: #f39c12;
+  margin-top: 24px;
+  margin-left: 10px;
+}
+
+.review-card p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.4;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* footer */
+footer {
+  background: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965662/waterma_lgv6hv.png")
+    no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 30px 20px; /* Adjust padding as needed */
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  position: relative; /* Changed from absolute to relative */
+  padding: 10px;
+  width: 140px; /* Adjusted the width as per your requirement */
+  height: auto; /* Keeps the aspect ratio of the logo */
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-logo img {
+  width: 240%; /* Ensure the image fills the container */
+  height: auto;
+  margin-top: -300px !important;
+  margin-left: -80px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: -5px !important;
+}
+
+.footer-social a {
+  color: white;
+}
+
+/* Footer Content Section */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  gap: 5;
+  text-align: center; /* Ensure text is centered */
+}
+
+.footer p a {
+  color: #ffffff;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer p a:active {
+  color: #f0a500; /* Optional color change on click */
+}
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+    font-size: 14px; /* Slightly smaller font size for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .footer-logo {
+    position: relative; /* Changed from absolute to relative */
+    padding: 10px;
+    width: 140px; /* Adjusted the width as per your requirement */
+    height: auto; /* Keeps the aspect ratio of the logo */
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .footer-logo img {
+    width: 240%; /* Ensure the image fills the container */
+    height: auto;
+    margin-top: -300px !important;
+    margin-left: -80px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-social a {
+    color: white;
+  }
+
+  /* Footer Content Adjustments */
+  .footer-content {
+    font-size: 14px; /* Adjust text size for mobile */
+    margin-top: 20px; /* Reduce margin-top */
+    line-height: 1.5;
+  }
+}

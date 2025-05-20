@@ -1,0 +1,400 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #012c60;
+  padding: 15px 50px;
+  color: white;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.header-logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transition correctly to the entire link */
+.header-links h1 a {
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* Ensures transform works properly */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.header-links h1 a:hover {
+  color: #e2ae3f;
+  transform: scale(1.1); /* Smooth zoom-in effect */
+}
+
+/* Hide Menu Toggle Checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  header {
+    height: 80px;
+    padding: 15px 50px;
+  }
+
+  /* Show Menu Icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide Navigation Links Initially */
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #012c60;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .header-links h1 {
+    margin: 10px 0;
+  }
+
+  /* Show Dropdown When Checkbox is Checked */
+  .menu-toggle:checked + .menu-icon + .header-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: -34px;
+  }
+}
+
+/* Terms Page */
+.terms-container {
+  display: flex;
+  justify-content: center;
+  padding: 100px 20px 20px;
+  margin-top: 30px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.terms-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 1200px;
+  height: auto;
+  padding-left: 40px; /* Adds space inside the left */
+  padding-right: 40px; /* Adds space inside the right */
+  margin-left: 20px; /* Adds space outside the left */
+  margin-right: 20px; /* Adds space outside the right */
+}
+
+.terms-card h2 {
+  color: #012c60;
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.terms-card h3 {
+  color: #012c60;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.4rem;
+}
+
+.terms-card p {
+  color: #2b2b2b;
+  line-height: 1.9;
+  margin-top: 20px;
+  font-family: sans-serif;
+}
+a {
+  color: #012c60; /* Normal link color */
+  font-weight: bold;
+}
+
+a:hover {
+  color: #e2ae3f; /* Color when the mouse hovers over the link */
+}
+
+/* footer */
+footer {
+  background: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965662/waterma_lgv6hv.png")
+    no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 30px 20px; /* Adjust padding as needed */
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  position: relative; /* Changed from absolute to relative */
+  padding: 10px;
+  width: 140px; /* Adjusted the width as per your requirement */
+  height: auto; /* Keeps the aspect ratio of the logo */
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-logo img {
+  width: 240%; /* Ensure the image fills the container */
+  height: auto;
+  margin-top: -300px !important;
+  margin-left: -80px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: -5px !important;
+}
+
+.footer-social a {
+  color: white;
+}
+
+/* Footer Content Section */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  gap: 5;
+  text-align: center; /* Ensure text is centered */
+}
+
+@media (max-width: 768px) {
+  .home-logo {
+    width: 80% !important; /* Adjust size */
+    max-width: 300px;
+    height: auto !important;
+    top: 10px; /* Adjust top spacing */
+    left: 50%;
+    transform: translateX(-50%); /* Center it properly */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-logo {
+    width: 80% !important; /* Adjust size */
+    max-width: 300px;
+    height: auto !important;
+    top: 10px; /* Adjust top spacing */
+    left: 50%;
+    transform: translateX(-50%); /* Center it properly */
+  }
+}
+
+/* Responsive Grid Layout for All Devices */
+@media (max-width: 576px) {
+  .tour-packages h2 {
+    font-size: 28px;
+  }
+
+  .tour-packages-container {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+
+  .tour-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .tour-title {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .tour-packages-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .tour-packages-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  }
+}
+
+@media (min-width: 1201px) {
+  .tour-packages-container {
+    grid-template-columns: repeat(5, 1fr); /* 5 cards per row */
+  }
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+    font-size: 14px; /* Slightly smaller font size for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .footer-logo {
+    position: relative; /* Changed from absolute to relative */
+    padding: 10px;
+    width: 140px; /* Adjusted the width as per your requirement */
+    height: auto; /* Keeps the aspect ratio of the logo */
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .footer-logo img {
+    width: 240%; /* Ensure the image fills the container */
+    height: auto;
+    margin-top: -300px !important;
+    margin-left: -80px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-social a {
+    color: white;
+  }
+
+  /* Footer Content Adjustments */
+  .footer-content {
+    font-size: 14px; /* Adjust text size for mobile */
+    margin-top: 20px; /* Reduce margin-top */
+    line-height: 1.5;
+  }
+}
+
+.footer p a {
+  color: #ffffff;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer p a:active {
+  color: #f0a500; /* Optional color change on click */
+}
+
+/* Responsive Header for Mobile */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center;
+    padding: 10px 20px; /* Reduce padding */
+    height: 11%;
+  }
+
+  .header-left {
+    margin-bottom: 10px; /* Add space below */
+  }
+
+  .header-logo {
+    width: 180px; /* Reduce logo size */
+    margin-bottom: 10px;
+    height: auto;
+  }
+
+  .header-links {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 5px;
+  }
+
+  .header-links h1 {
+    font-size: 1.2rem; /* Reduce font size */
+    margin: 5px 0;
+  }
+
+  .header-links a {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,1477 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #012c60;
+  padding: 15px 50px;
+  color: white;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.header-logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transition correctly to the entire link */
+.header-links h1 a {
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* Ensures transform works properly */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.header-links h1 a:hover {
+  color: #e2ae3f;
+  transform: scale(1.1); /* Smooth zoom-in effect */
+}
+
+/* Hide Menu Toggle Checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  header {
+    height: 80px;
+    padding: 15px 50px;
+  }
+
+  /* Show Menu Icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide Navigation Links Initially */
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #012c60;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .header-links h1 {
+    margin: 10px 0;
+  }
+
+  /* Show Dropdown When Checkbox is Checked */
+  .menu-toggle:checked + .menu-icon + .header-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: -34px;
+  }
+}
+
+/* Home Image Section */
+.home-image {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+}
+
+.home-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(54, 48, 48, 0.4); /* Adjust opacity as needed */
+  z-index: 1;
+}
+
+.home-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: center;
+}
+
+/* Text and Button on Home Image */
+.home-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 44px;
+  gap: 2px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  filter: drop-shadow(0px 0px 10px rgba(54, 48, 48, 0.8));
+}
+
+.home-btn-container {
+  position: absolute;
+  text-align: center;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.home-book-now-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #e2ae3f;
+  color: #012c60;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  filter: drop-shadow(0px 0px 10px rgba(54, 48, 48, 0.8));
+}
+
+.home-book-now-btn:hover {
+  background-color: #012c60;
+  color: #ffffff;
+}
+
+/* Slider Container */
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Individual Slides */
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease; /* Smooth transition for height, width, margins */
+}
+
+/* Apply individual styles to each image using its index */
+.slide:nth-child(1) img {
+  margin-top: 20px; /* Adjust top margin for first image */
+  width: 100%; /* Adjust width for the first image */
+  height: 100%; /* Adjust height for the first image */
+}
+
+.slide:nth-child(2) img {
+  margin-top: 40px; /* Adjust top margin for second image */
+  width: 100%; /* Adjust width for the second image */
+  height: 100%; /* Adjust height for the second image */
+  opacity: 0.7;
+}
+
+.slide:nth-child(3) img {
+  margin-top: 20px; /* Adjust top margin for third image */
+  width: 100%; /* Adjust width for the third image */
+  height: 100%; /* Adjust height for the third image */
+  opacity: 0.8;
+}
+
+/* Show the active slide */
+.slide.active {
+  display: block;
+}
+
+/* Slider Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.slider-dots .dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ffffffa0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-dots .dot.active {
+  background-color: #e2ae3f;
+}
+
+/* Hide content and button by default on slides other than the first */
+#homeContent,
+#homeBtn {
+  display: block;
+}
+
+.slide:not(.active) #homeContent,
+.slide:not(.active) #homeBtn {
+  display: none;
+}
+
+/* Ensure slide-container behaves like slide */
+.slide-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Show when active (using JS toggling like .slide.active) */
+.slide-container.active {
+  display: block;
+}
+
+/* Style for the button inside slide-container */
+.slide-container .slide-btn {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 30px;
+  background-color: #e2ae3f;
+  color: #012c60;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slide-container .slide-btn:hover {
+  background-color: #012c60;
+  color: #ffffff;
+}
+
+/* Background Section Below Image */
+.after-home-image {
+  background-color: #012c60;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.after-home-image h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+/* Activities Section */
+.activities-container {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.popular-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 120px;
+  background: linear-gradient(45deg, #e2ae3f, #e2ae3f);
+  color: #012c60;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulse 1.5s infinite;
+}
+
+.activity-card {
+  position: relative; /* Ensures the tag is positioned inside the card */
+}
+
+.activity-card {
+  background: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 350px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  padding: 0;
+}
+
+.activity-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  display: block;
+}
+
+.activity-card-content {
+  padding: 15px;
+}
+
+.activity-card h3 {
+  font-size: 24px;
+  gap: 10px;
+  margin: 10px 0;
+  color: #000000;
+}
+
+.activity-card p {
+  font-size: 18px;
+  color: #555;
+  padding: 0 10px;
+}
+
+/* Location */
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #000000 !important;
+  margin: 10px 0;
+}
+
+.location i {
+  margin-right: 8px;
+  color: #ff0000;
+}
+
+/* Buttons Section */
+.activity-book-now-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #012c60; /* Green color for differentiation */
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+  width: 70%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.activity-book-now-btn:hover {
+  background-color: #e2ae3f;
+}
+
+.learn-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #012c60;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+  border: 2px solid #012c60; /* Add border color */
+  width: 70%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.learn-more-btn:hover {
+  color: #012c60;
+  border-color: #e2ae3f; /* Change border color on hover */
+}
+
+/* Vehicle Section Styling */
+.vehicles-section h2 {
+  font-size: 2em; /* Using em for relative font sizing */
+  font-weight: bold;
+  color: #ffffff;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.vehicles-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+  /* Added Flex alignment to ensure centering of content */
+  justify-content: center;
+}
+
+/* Card Styling */
+.vehicle-cards {
+  display: flex;
+  justify-content: center; /* Ensures the cards are centered */
+  gap: 15px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 18%; /* Default width for larger screens */
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* Vehicle Image Styling */
+.vehicle-image {
+  width: 100%;
+  height: 150px;
+  object-fit: contain; /* Ensure image scales without cropping */
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+
+.vehicle-details {
+  padding: 5px;
+}
+
+.vehicle-details h3 {
+  font-size: 1.2em; /* Slightly smaller for better scaling */
+  margin-bottom: 10px;
+  color: #012c60;
+}
+
+.vehicle-details p {
+  margin: 5px 0;
+  font-size: 0.9em; /* Adjusted for smaller screens */
+  font-family: sans-serif;
+}
+
+/* Responsive adjustments for the cards */
+@media (max-width: 1024px) {
+  .card {
+    width: 22%; /* Adjust card width on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 45%; /* Cards take up 45% of the container width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 90%; /* Cards take up 90% of the container width on mobile screens */
+  }
+  .vehicles-section h2 {
+    font-size: 1.5em; /* Adjust font size on smaller screens */
+  }
+  .vehicle-details h3 {
+    font-size: 1.1em; /* Adjust heading font size for better readability */
+  }
+}
+
+/* Top Destination Section */
+#top-destination {
+  scroll-margin-top: 160px; /* Adjust based on your header height */
+}
+
+/* Tour Packages Heading */
+#top-destination h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+  margin: 25px 0 10px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+/* Tour Packages Container */
+#top-destination .tour-packages-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 15px;
+  margin-top: 34px;
+  padding: 5px;
+  justify-items: center; /* Center items in grid */
+}
+
+/* Tour Card */
+#top-destination .tour-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px; /* Prevents oversized cards */
+  min-width: 250px; /* Ensures no tiny cards */
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+#top-destination .tour-card:hover {
+  transform: scale(1.05); /* Hover effect */
+}
+
+#top-destination .tour-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(54, 48, 48, 0.8);
+  background: white;
+}
+
+/* Tour Image Styling */
+#top-destination .tour-image {
+  height: 150px;
+  overflow: hidden;
+}
+
+#top-destination .tour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Tour Title */
+#top-destination .tour-title {
+  text-align: center;
+  color: #012c60;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+/* Make Links Block Level (Clickable Area) */
+#top-destination a {
+  display: block;
+  text-decoration: none;
+}
+
+.view-more-link {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.view-more-link a {
+  font-size: 16px;
+  color: #ffffff; /* white text */
+  background-color: #012c60; /* dark blue background */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 7px 25px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.view-more-link a:hover {
+  background-color: #e2ae3f;
+  color: #012c60;
+}
+
+/* Responsive Styling for Small Screens */
+@media screen and (max-width: 480px) {
+  .view-more-link a {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+
+  .view-more-link {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+.tour-packages-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tour-card {
+  flex: 1 1 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* new section styling */
+.locations-section {
+  background: url(../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965957/watermarkwhite_gsxzae.png)
+    repeat center center;
+  margin: 40px auto;
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.locations-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #012c60;
+}
+
+.location-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.location-links a {
+  color: #2d2c2c;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.location-links a:hover {
+  background-color: #012c60;
+  color: white;
+}
+
+#top-destination.second-section .tour-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  min-width: 250px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  padding-bottom: 15px; /* extra space for description */
+}
+
+#top-destination.second-section .tour-card:hover {
+  transform: scale(1.05); /* only zoom effect */
+}
+
+/* Image Styling */
+#top-destination.second-section .tour-image {
+  height: 150px;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#top-destination.second-section .tour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Title Styling */
+#top-destination.second-section .tour-title {
+  text-align: center;
+  font-size: 17px;
+  color: #012c60;
+  margin: 10px 0 5px 0;
+  margin-top: 1px;
+}
+
+.tour-description p {
+  font-family: sans-serif;
+}
+
+/* Description Styling */
+#top-destination.second-section .tour-description {
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+  padding: 0 10px;
+  line-height: 1.3;
+}
+
+/* Remove previous wrong hover behaviors */
+#top-destination.second-section .tour-card .tour-title,
+#top-destination.second-section .tour-card .tour-description {
+  position: static; /* no absolute */
+  opacity: 1; /* always visible */
+  visibility: visible;
+  background: none; /* no dark background */
+}
+
+.view-more-link2 {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 0px;
+}
+
+.view-more-link2 a {
+  font-size: 16px;
+  color: #ffffff; /* white text */
+  background-color: #012c60; /* dark blue background */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 7px 25px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.view-more-link2 a:hover {
+  background-color: #e2ae3f;
+  color: #012c60;
+}
+
+/* Responsive Styling for Small Screens */
+@media screen and (max-width: 480px) {
+  .view-more-link2 a {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+
+  .view-more-link2 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+section.scroll-articles {
+  padding: 20px;
+}
+
+.scroll-articles h2 {
+  font-size: 32px;
+  color: #000000;
+  margin-bottom: 8px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-behavior: smooth;
+  padding: 30px;
+  white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.article-card {
+  flex: 0 0 auto;
+  width: 230px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.article-card:hover {
+  transform: scale(1.05);
+}
+
+.article-card img {
+  width: 100%;
+  height: 140px; /* Set your desired fixed height */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.article-card h3 {
+  margin: 10px;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap");
+
+.driver-section {
+  padding: 50px 20px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: -70px;
+  margin-bottom: 25px;
+}
+
+.driver-section h2 {
+  font-size: 32px;
+  color: #000000;
+  margin-bottom: 24px;
+  text-align: center;
+  margin-top: 1%;
+}
+.driver-card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -50px;
+  margin-bottom: -20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.driver-card {
+  background: url(../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965957/watermarkwhite_gsxzae.png)
+    no-repeat center center !important;
+  position: relative;
+  padding-top: 100px; /* Make room for the image above */
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 6%;
+  height: 290px !important;
+  width: 250px;
+  border-color: #012c60;
+  border-width: 1.5px;
+}
+
+.driver-image-wrapper {
+  position: absolute;
+  top: -50px; /* Half the image height */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.driver-image-wrapper img.glasses {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.driver-card:hover {
+  transform: translateY(-0.5em);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 60px -7px;
+}
+
+.driver-heading {
+  color: #012c60;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-top: -1em;
+  margin-bottom: 0.5em;
+  font-family: sans-serif;
+}
+
+.card-details {
+  color: #333;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  font-family: sans-serif;
+  line-height: 1.7em;
+  margin-top: 10px;
+}
+
+.card-details strong {
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
+
+.card-details .rating {
+  color: #f0a500; /* Gold/yellow color for stars */
+  font-weight: 200;
+  font-size: 1em;
+  margin-top: -10px;
+  font-weight: bold;
+}
+
+.btn1 {
+  border: none;
+  outline: none;
+  background-color: #012c60;
+  color: white;
+  font-size: 0.9em;
+  padding: 0.6em 1.5em;
+  font-family: sans-serif;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: 0.4s ease-in-out;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  text-decoration: none; /* ← removes underline */
+  display: inline-block; /* ← makes the <a> act like a button */
+  margin-top: -20px;
+}
+
+.driver-card:hover .btn1 {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.btn1:hover {
+  background-color: #e2ae3f;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .driver-card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
+    margin-bottom: -20px;
+  }
+  .driver-card {
+    height: auto;
+    padding-top: 80px;
+    margin-top: 12%;
+  }
+
+  .driver-heading {
+    font-size: 1em;
+  }
+
+  .card-details {
+    font-size: 0.85em;
+  }
+
+  .btn1 {
+    font-size: 0.8em;
+    padding: 0.5em 1.2em;
+  }
+
+  .driver-image-wrapper {
+    width: 100px;
+    height: 100px;
+    top: -45px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .driver-card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -40px;
+    margin-bottom: -20px;
+  }
+  .driver-card {
+    height: auto;
+    padding-top: 80px;
+    margin-top: 12%;
+  }
+
+  .driver-heading {
+    font-size: 1em;
+  }
+
+  .card-details {
+    font-size: 0.85em;
+  }
+
+  .btn1 {
+    font-size: 0.8em;
+    padding: 0.5em 1.2em;
+  }
+
+  .driver-image-wrapper {
+    width: 100px;
+    height: 100px;
+    top: -45px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .driver-card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    margin-bottom: -20px;
+  }
+  .driver-section {
+    padding: 50px 10px;
+    margin-bottom: 2px;
+  }
+
+  .driver-section h2 {
+    font-size: 32px;
+  }
+
+  .driver-card {
+    height: auto;
+    padding-top: 120px;
+    margin-top: 18%;
+    align-items: center;
+    width: 220px;
+  }
+
+  .driver-image-wrapper {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+  }
+
+  .driver-heading {
+    font-size: 1em;
+  }
+
+  .card-details {
+    font-size: 0.8em;
+  }
+
+  .btn1 {
+    font-size: 0.8em;
+    padding: 0.4em 1em;
+    margin-top: 30px;
+  }
+}
+
+.tripadvisor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  margin-top: -20px;
+  overflow: hidden; /* Prevents horizontal scroll */
+  width: 100%;
+}
+
+.TA_selfserveprop {
+  text-align: center;
+  max-width: 100%; /* Limits width to container */
+}
+
+.TA_selfserveprop ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.TA_selfserveprop li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.TA_selfserveprop img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tripadvisor {
+    padding: 15px;
+  }
+
+  .TA_selfserveprop {
+    max-width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+  }
+
+  .TA_selfserveprop li {
+    padding: 5px;
+  }
+}
+
+/* footer */
+footer {
+  background: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965662/waterma_lgv6hv.png")
+    no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 30px 20px; /* Adjust padding as needed */
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  position: relative; /* Changed from absolute to relative */
+  padding: 10px;
+  width: 140px; /* Adjusted the width as per your requirement */
+  height: auto; /* Keeps the aspect ratio of the logo */
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-logo img {
+  width: 240%; /* Ensure the image fills the container */
+  height: auto;
+  margin-top: -300px !important;
+  margin-left: -80px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: -5px !important;
+}
+
+.footer-social a {
+  color: white;
+}
+
+/* Footer Content Section */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  gap: 5;
+  text-align: center; /* Ensure text is centered */
+}
+
+.footer p a {
+  color: #ffffff;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer p a:active {
+  color: #f0a500; /* Optional color change on click */
+}
+
+@media (max-width: 768px) {
+  .home-logo {
+    width: 80% !important; /* Adjust size */
+    max-width: 300px;
+    height: auto !important;
+    top: 10px; /* Adjust top spacing */
+    left: 50%;
+    transform: translateX(-50%); /* Center it properly */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-logo {
+    width: 80% !important; /* Adjust size */
+    max-width: 300px;
+    height: auto !important;
+    top: 10px; /* Adjust top spacing */
+    left: 50%;
+    transform: translateX(-50%); /* Center it properly */
+  }
+}
+
+/* Responsive Grid Layout for All Devices */
+@media (max-width: 576px) {
+  .tour-packages h2 {
+    font-size: 28px;
+  }
+
+  .tour-packages-container {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+
+  .tour-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .tour-title {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .tour-packages-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .tour-packages-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  }
+}
+
+@media (min-width: 1201px) {
+  .tour-packages-container {
+    grid-template-columns: repeat(5, 1fr); /* 5 cards per row */
+  }
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+    font-size: 14px; /* Slightly smaller font size for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .footer-logo {
+    position: relative; /* Changed from absolute to relative */
+    padding: 10px;
+    width: 140px; /* Adjusted the width as per your requirement */
+    height: auto; /* Keeps the aspect ratio of the logo */
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .footer-logo img {
+    width: 240%; /* Ensure the image fills the container */
+    height: auto;
+    margin-top: -300px !important;
+    margin-left: -80px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-social a {
+    color: white;
+  }
+
+  /* Footer Content Adjustments */
+  .footer-content {
+    font-size: 14px; /* Adjust text size for mobile */
+    margin-top: 20px; /* Reduce margin-top */
+    line-height: 1.5;
+  }
+}
+/* Responsive Header for Mobile */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center;
+    padding: 10px 20px; /* Reduce padding */
+    /*height: 11%;*/
+  }
+
+  .header-left {
+    margin-bottom: 10px; /* Add space below */
+  }
+
+  .header-logo {
+    width: 180px; /* Reduce logo size */
+    margin-bottom: 10px;
+    height: auto;
+  }
+
+  .header-links {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 5px;
+  }
+
+  .header-links h1 {
+    font-size: 1.2rem; /* Reduce font size */
+    margin: 5px 0;
+  }
+
+  .header-links a {
+    font-size: 1.2rem;
+  }
+
+  /* Adjust Home Image */
+  .home-image {
+    height: 400px;
+  }
+
+  .home-text {
+    font-size: 28px;
+    width: 90%;
+  }
+
+  .home-btn-container {
+    top: 70%;
+  }
+
+  .home-book-now-btn {
+    padding: 12px 24px;
+    font-size: 18px;
+  }
+
+  /* Activities Section */
+  .activities-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .activity-card {
+    width: 90%;
+  }
+
+  /* Tour Packages */
+  .tour-packages-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tour-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce text sizes */
+  .home-text {
+    font-size: 22px;
+  }
+
+  .home-book-now-btn {
+    font-size: 16px;
+  }
+
+  .activity-card h3 {
+    font-size: 20px;
+  }
+
+  .activity-card p {
+    font-size: 16px;
+  }
+}

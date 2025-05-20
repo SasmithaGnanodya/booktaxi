@@ -1,0 +1,128 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 19 May 2025 01:28:46 at https://www.booksrilankataxi.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+booksrilankataxi
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.lesstaxi.com/ -O1 "D:\extentions\newweb\asanka" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+
+
+Information, Warnings and Errors reported for this mirror:
+
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,booksrilankataxi
+booksrilankataxi
+	such as username/password authentication for websites booksrilankataxi in this projbooksrilankataxibooksrilankataxibooksrilankataxi
+booksrilankataxibooksrilankataxi
+	do not share these files/folders if you want these infbooksrilankataxi to remain privatebooksrilankataxi
+booksrilankataxibooksrilankataxi
+booksrilankataxi
+booksrilankataxibooksrilankataxi
+01:29:13	Error: 	"Bad Request" (400) at link https://wwbooksrilankataxitagmanager.com/gtm.js?id= (from https://www.lesstaxi.com/)booksrilankataxi
+booksrilankataxibooksrilankataxi
+01:32:57	Warning: 	Link https://www.lesstaxi.com/cdn-cgbooksrilankataxil-protection not scanned (follow robots meta tag)booksrilankataxi
+booksrilankataxibooksrilankataxi
+01:32:59	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/contact-lesstaxi/terms-and-conditions/ (from https://www.lessbooksrilankataxi/contact-lesstaxi/)
+booksrilankataxibooksrilankataxi
+01:32:59	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/terms-and-conditions/css/animation.css (from https://www.lesstaxi.combooksrilankataxind-conditions/)
+booksrilankataxibooksrilankataxi
+01:33:01	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/travel-welcome-bonus/terms-and-conditions/ (from https://www.lesstaxi.cbooksrilankataxil-welcome-bonus/)
+booksrilankataxibooksrilankataxi
+01:33:01	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/free-tourist-sim-card-sri-lanka/terms-and-conditions/ (from https://www.lbooksrilankataxicom/free-tourist-sim-card-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:33:03	Error: 	"Forbidden" (403) at link https://kit.booksrilankataxiome.com/YOUR_KIT_CODE.js (from https://www.lesstaxi.com/yala-safari/)booksrilankataxi
+booksrilankataxibooksrilankataxi
+01:33:03	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/yala-safari/terms-and-conditions/ (from https://www.lesstaxi.com/yala-sabooksrilankataxi
+booksrilankataxibooksrilankataxi
+01:33:03	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/udawalawe-safari/terms-and-conditions/ (from https://www.lesstaxi.com/udabooksrilankataxiafari/)
+booksrilankataxibooksrilankataxi
+01:33:03	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/whale-watching-mirissa/terms-and-conditions/ (from https://www.lesstaxi.cobooksrilankataxiwatching-mirissa/)
+booksrilankataxibooksrilankataxi
+01:33:03	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/surfing-arugam-bay/terms-and-conditions/ (from https://www.lesstaxi.com/booksrilankataxiarugam-bay/)
+booksrilankataxibooksrilankataxi
+01:33:03	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/snorkeling-hikkaduwa/terms-and-conditions/ (from https://www.lesstaxi.combooksrilankataxiing-hikkaduwa/)
+booksrilankataxibooksrilankataxi
+01:33:03	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/bentota-river-safari/terms-and-conditions/ (from https://www.lbooksrilankataxicom/bentota-river-safari/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/sri-lanka-tourist-destinations/terms-and-conditions/ (from https://booksrilankataxitaxi.com/sri-lanka-tourist-destinations/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-galle-sri-lanka/terms-and-conditions/ (from httpsbooksrilankataxiesstaxi.com/things-do-in-galle-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-mirissa-sri-lanka/terms-and-conditions/ (from https:/booksrilankataxistaxi.com/things-do-in-mirissa-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-bentota-sri-lanka/terms-and-conditions/ (from https://www.lesstabooksrilankataxihings-do-in-bentota-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-dambulla-sri-lanka/terms-and-conditions/ (from https://wwbooksrilankataxixi.com/things-do-in-dambulla-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-udawalawa-sri-lanka/terms-and-conditions/ (from https://wwbooksrilankataxixi.com/things-do-in-udawalawa-sri-lanka/)
+booksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-colombo-sri-lanka/terms-and-conditions/ (from https://wwbooksrilankataxixi.com/things-do-in-colombo-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-polonnaruwa-sri-lanka/terms-and-conditions/ (from https://wbooksrilankataxiaxi.com/things-do-in-polonnaruwa-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-batticaloa-sri-lanka/terms-and-conditions/ (from https://www.lbooksrilankataxicom/things-do-in-batticaloa-sri-lanka/)
+booksrilankataxibooksrilankataxi
+01:34:14	Error: 	"Not Found" (404) at link https://www.booksrilankataxi.com/things-do-in-tangalle-sri-lanka/terms-and-conditions/ (from https://booksrilankataxitaxi.com/things-do-in-tangalle-sri-lanka/)
+
+01:34:15	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-jaffna-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-jaffna-sri-lanka/)
+
+01:34:15	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-hikkaduwa-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-hikkaduwa-sri-lanka/)
+
+01:34:16	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-hiriketiya-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-hiriketiya-sri-lanka/)
+
+01:34:16	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-belihuloya-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-belihuloya-sri-lanka/)
+
+01:34:16	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-haputale-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-haputale-sri-lanka/)
+
+01:34:16	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-kalutara-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-kalutara-sri-lanka/)
+
+01:34:16	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-negombo-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-negombo-sri-lanka/)
+
+01:34:17	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-ratnapura-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-ratnapura-sri-lanka/)
+
+01:34:17	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/tours/favicon.ico (from https://www.lesstaxi.com/tours/sri-lanka-tours/)
+
+01:34:17	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/tours/sri-lanka-tours/terms-and-conditions/ (from https://www.lesstaxi.com/tours/sri-lanka-tours/)
+
+01:34:17	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/sri-lanka-adventure-activities/terms-and-conditions/ (from https://www.lesstaxi.com/sri-lanka-adventure-activities/)
+
+01:34:17	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/hindu-temples-in-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/hindu-temples-in-sri-lanka/)
+
+01:34:17	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/best-vegetarian-restaurants-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/best-vegetarian-restaurants-sri-lanka/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/travel-to-sri-lanka-guide/css/animation.css (from https://www.lesstaxi.com/travel-to-sri-lanka-guide/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/travel-to-sri-lanka-guide/terms-and-conditions/ (from https://www.lesstaxi.com/travel-to-sri-lanka-guide/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/popular-itineraries-sri-lanka/css/animation.css (from https://www.lesstaxi.com/popular-itineraries-sri-lanka/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/popular-itineraries-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/popular-itineraries-sri-lanka/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/unique-wonders-of-sri-lanka-travel-guide/css/animation.css (from https://www.lesstaxi.com/unique-wonders-of-sri-lanka-travel-guide/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/unique-wonders-of-sri-lanka-travel-guide/terms-and-conditions/ (from https://www.lesstaxi.com/unique-wonders-of-sri-lanka-travel-guide/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/best-wildlife-safari-in-sri-lanka/css/animation.css (from https://www.lesstaxi.com/best-wildlife-safari-in-sri-lanka/)
+
+01:34:18	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/best-wildlife-safari-in-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/best-wildlife-safari-in-sri-lanka/)
+
+01:34:19	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/tea-plantation-tours-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/tea-plantation-tours-sri-lanka/)
+
+01:34:19	Error: 	"Not Found" (404) at link https://example.com/yala-safari-background.jpg (from https://www.lesstaxi.com/yala-safari/style.css)
+
+01:34:19	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-kandy-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-kandy-sri-lanka/)
+
+01:34:20	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-nuwara-eliya-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-nuwara-eliya-sri-lanka/)
+
+01:34:20	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-sigiriya-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-sigiriya-sri-lanka/)
+
+01:34:20	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-anuradhapura-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-anuradhapura-sri-lanka/)
+
+01:34:20	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-trincomalee-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-trincomalee-sri-lanka/)
+
+01:34:20	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-arugam-bay-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-arugam-bay-sri-lanka/)
+
+01:34:20	Error: 	"Not Found" (404) at link https://www.lesstaxi.com/things-do-in-ella-sri-lanka/terms-and-conditions/ (from https://www.lesstaxi.com/things-do-in-ella-sri-lanka/)
+
+
+
+HTTrack Website Copier/3.49-2 mirror complete in 5 minutes 34 seconds : 613 links scanned, 560 files written (257902466 bytes overall) [257060224 bytes received at 769641 bytes/sec], 2160077 bytes transferred using HTTP compression in 151 files, ratio 33%, 5.1 requests per connection
+
+(52 errors, 1 warnings, 0 messages)
+

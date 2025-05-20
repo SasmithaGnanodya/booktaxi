@@ -1,0 +1,351 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #012c60;
+  padding: 15px 50px;
+  color: white;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.header-logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transition correctly to the entire link */
+.header-links h1 a {
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* Ensures transform works properly */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.header-links h1 a:hover {
+  color: #e2ae3f;
+  transform: scale(1.1); /* Smooth zoom-in effect */
+}
+
+/* Hide Menu Toggle Checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  header {
+    height: 80px;
+    padding: 15px 50px;
+  }
+
+  /* Show Menu Icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide Navigation Links Initially */
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #012c60;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .header-links h1 {
+    margin: 10px 0;
+  }
+
+  /* Show Dropdown When Checkbox is Checked */
+  .menu-toggle:checked + .menu-icon + .header-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: -20px;
+  }
+}
+
+/* Contact Form Styles */
+.contact_us_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+}
+
+.big-container {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 90px;
+}
+
+.contactus-head {
+  font-size: 24px;
+  font-weight: bold;
+  color: #012c60;
+  margin-bottom: 10px;
+}
+
+.input-title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  color: #012c60;
+}
+
+.input,
+.textinput {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.textinput {
+  height: 80px;
+  resize: none;
+}
+
+/* Ensure consistency with other input fields */
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px !important;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Adjust WhatsApp input field */
+#whatsapp-number {
+  width: 100%;
+}
+
+/* Fix alignment issue in flex/grid layouts */
+.responsive-cell-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* If using intl-tel-input, ensure proper alignment */
+.iti {
+  width: 100% !important;
+}
+
+.submit-btn {
+  width: 100%;
+  height: auto;
+  background-color: #012c60;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #e2ae3f;
+}
+
+/* footer */
+footer {
+  background: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965662/waterma_lgv6hv.png")
+    no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 30px 20px; /* Adjust padding as needed */
+  text-align: center;
+  margin-top: 1px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  position: relative; /* Changed from absolute to relative */
+  padding: 10px;
+  width: 140px; /* Adjusted the width as per your requirement */
+  height: auto; /* Keeps the aspect ratio of the logo */
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-logo img {
+  width: 240%; /* Ensure the image fills the container */
+  height: auto;
+  margin-top: -300px !important;
+  margin-left: -80px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: -5px !important;
+}
+
+.footer-social a {
+  color: white;
+}
+
+/* Footer Content Section */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  gap: 5;
+  text-align: center; /* Ensure text is centered */
+}
+
+.footer p a {
+  color: #ffffff;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer p a:active {
+  color: #f0a500; /* Optional color change on click */
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+    font-size: 14px; /* Slightly smaller font size for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .footer-logo {
+    position: relative; /* Changed from absolute to relative */
+    padding: 10px;
+    width: 140px; /* Adjusted the width as per your requirement */
+    height: auto; /* Keeps the aspect ratio of the logo */
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .footer-logo img {
+    width: 240%; /* Ensure the image fills the container */
+    height: auto;
+    margin-top: -300px !important;
+    margin-left: -80px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-social a {
+    color: white;
+  }
+
+  /* Footer Content Adjustments */
+  .footer-content {
+    font-size: 14px; /* Adjust text size for mobile */
+    margin-top: 20px; /* Reduce margin-top */
+    line-height: 1.5;
+  }
+}

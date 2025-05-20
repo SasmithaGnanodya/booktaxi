@@ -1,0 +1,664 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #012c60;
+  padding: 15px 50px;
+  color: white;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.header-logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transition correctly to the entire link */
+.header-links h1 a {
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* Ensures transform works properly */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.header-links h1 a:hover {
+  color: #e2ae3f;
+  transform: scale(1.1); /* Smooth zoom-in effect */
+}
+
+/* Hide Menu Toggle Checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  header {
+    height: 80px;
+    padding: 15px 50px;
+  }
+
+  /* Show Menu Icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide Navigation Links Initially */
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #012c60;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .header-links h1 {
+    margin: 10px 0;
+  }
+
+  /* Show Dropdown When Checkbox is Checked */
+  .menu-toggle:checked + .menu-icon + .header-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: -20px;
+  }
+}
+
+/* Image Section */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 440px; /* Default height for large screens */
+  margin-top: 90px; /* To ensure it appears below the header */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+  background-position: center;
+  opacity: 0.6;
+  background-image: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1745301843/Negambo_Beach_amew16.png"); /* Set the image you want to keep */
+}
+/* Overlay Text and Button */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #012c60;
+}
+
+.overlay h2 {
+  font-size: 3rem;
+  font-weight: bold !important;
+  margin-bottom: 58px;
+  font-family: "Lato", sans-serif;
+}
+
+.book-tour-btn {
+  background-color: #012c60;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block; /* Ensures proper sizing */
+  transition: background-color 0.3s ease;
+}
+
+.book-tour-btn:hover {
+  background-color: #d48c2a;
+}
+
+@media (max-width: 768px) {
+  .book-tour-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-tour-btn {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+}
+
+/* Make the Image Container Responsive */
+@media screen and (max-width: 1024px) {
+  .image-container {
+    margin-top: 80px !important;
+    height: 340px !important; /* Adjust height for tablet screens */
+  }
+
+  .overlay h2 {
+    font-size: 1.5rem; /* Smaller font size for mobile devices */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-container {
+    margin-top: 80px;
+    height: 240px !important;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem; /* Adjust font size for smaller devices */
+  }
+
+  .book-tour-btn {
+    font-size: 1rem; /* Smaller button on small screens */
+  }
+}
+
+#things-to-do {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000000;
+}
+
+/* Wrapper to align cards horizontally */
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjusted spacing between cards */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  padding: 10px;
+}
+
+/* Card container */
+.uc_content_box_zoom_effect {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 330px; /* Slightly smaller for better layout */
+  height: 340px;
+  margin: 15px; /* Reduced margin */
+  border-radius: 10px; /* Soft rounded edges */
+  border: none; /* Removed border for cleaner look */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for a modern touch */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.uc_content_box_zoom_effect:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image inside the card */
+.uc_thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Better image fill */
+  transition: transform 0.5s ease;
+}
+
+/* Image zoom on hover */
+.uc_content_box_zoom_effect:hover .uc_thumbnail img {
+  transform: scale(1.1);
+}
+
+/* Image title */
+.image-title {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Darker for better visibility */
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hide title when hovered */
+.uc_content_box_zoom_effect:hover .image-title {
+  opacity: 0;
+}
+
+/* Caption reveal */
+.uc_content_box_zoom_effect_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s ease;
+}
+
+/* Show caption when hovered */
+.uc_content_box_zoom_effect:hover .uc_content_box_zoom_effect_content {
+  opacity: 1;
+}
+
+/* Caption text */
+.image-caption {
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.icroh-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.icroh-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .cards-wrapper {
+    gap: 15px; /* Increase spacing slightly */
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .uc_content_box_zoom_effect {
+    max-width: 300px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .uc_content_box_zoom_effect {
+    max-width: 280px;
+  }
+}
+
+.what-to-expect-section {
+  background-color: #012c60;
+  padding: 25px;
+  color: white;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.container {
+  width: auto;
+  max-width: 1050px;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0 auto; /* Centers the container */
+  hyphens: auto; /* Helps in breaking words to fit */
+}
+@media (max-width: 768px) {
+  .container {
+    width: 90%; /* Adjust width for tablets */
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%; /* Adjust width for mobile devices */
+    padding: 10px;
+  }
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styling for 3-5 Star Hotels Title */
+.hotel-title {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px 0;
+}
+
+.hotel-title h2 {
+  font-size: 2rem;
+  color: #000000;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+}
+
+/* Flip Box Container */
+.flip-box-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between cards */
+  flex-wrap: wrap;
+}
+
+/* Flip Box Styling */
+.flip-box {
+  width: 220px !important;
+  height: 320px !important;
+  perspective: 1000px;
+  margin: 20px 10px; /* Adjusted margin */
+  position: relative; /* Needed for absolute positioning of children */
+}
+
+.flip-box-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #fff;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Hotel image styling */
+.hotel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the card */
+  opacity: 0.7; /* Makes the image semi-transparent */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Independent positioning for the hotel logo */
+.hotel-logo {
+  position: absolute;
+  top: 40px; /* Adjust logo's vertical position */
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.hotel-logo img {
+  width: 50px !important;
+  height: auto;
+}
+
+/* Independent positioning for the hotel name */
+.hotel-name {
+  position: absolute;
+  top: 180px; /* Adjust name's vertical position */
+  font-size: 1.3rem;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+/* Back side of the flip box */
+.flip-box-back {
+  background-color: #012c60;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 20px;
+  text-align: center;
+  transform: rotateY(180deg);
+  pointer-events: auto;
+}
+
+/* BOOK NOW Button Styling */
+.book-now-btn {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #d48c2a;
+  border-radius: 0px;
+  margin-top: 30px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  z-index: 10; /* Ensures it's clickable */
+}
+
+.book-now-btn:hover {
+  background-color: #d48c2a;
+  border-color: #d48c2a;
+}
+
+/* footer */
+footer {
+  background: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965662/waterma_lgv6hv.png")
+    no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 30px 20px; /* Adjust padding as needed */
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  position: relative; /* Changed from absolute to relative */
+  padding: 10px;
+  width: 140px; /* Adjusted the width as per your requirement */
+  height: auto; /* Keeps the aspect ratio of the logo */
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-logo img {
+  width: 240%; /* Ensure the image fills the container */
+  height: auto;
+  margin-top: -300px !important;
+  margin-left: -80px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: -5px !important;
+}
+
+.footer-social a {
+  color: white;
+}
+
+/* Footer Content Section */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  gap: 5;
+  text-align: center; /* Ensure text is centered */
+}
+
+.footer p a {
+  color: #ffffff;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer p a:active {
+  color: #f0a500; /* Optional color change on click */
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+    font-size: 14px; /* Slightly smaller font size for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .footer-logo {
+    position: relative; /* Changed from absolute to relative */
+    padding: 10px;
+    width: 140px; /* Adjusted the width as per your requirement */
+    height: auto; /* Keeps the aspect ratio of the logo */
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .footer-logo img {
+    width: 240%; /* Ensure the image fills the container */
+    height: auto;
+    margin-top: -300px !important;
+    margin-left: -80px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-social a {
+    color: white;
+  }
+
+  /* Footer Content Adjustments */
+  .footer-content {
+    font-size: 14px; /* Adjust text size for mobile */
+    margin-top: 20px; /* Reduce margin-top */
+    line-height: 1.5;
+  }
+}

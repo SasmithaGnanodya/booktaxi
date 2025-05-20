@@ -1,0 +1,493 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #012c60;
+  padding: 15px 50px;
+  color: white;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.header-logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transition correctly to the entire link */
+.header-links h1 a {
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* Ensures transform works properly */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.header-links h1 a:hover {
+  color: #e2ae3f;
+  transform: scale(1.1); /* Smooth zoom-in effect */
+}
+
+/* Hide Menu Toggle Checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  header {
+    height: 80px;
+    padding: 15px 50px;
+  }
+
+  /* Show Menu Icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide Navigation Links Initially */
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #012c60;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .header-links h1 {
+    margin: 10px 0;
+  }
+
+  /* Show Dropdown When Checkbox is Checked */
+  .menu-toggle:checked + .menu-icon + .header-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: -20px;
+  }
+}
+
+/* Image Section */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 440px; /* Default height for large screens */
+  margin-top: 90px; /* To ensure it appears below the header */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250%;
+  background-size: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+  background-position: center;
+  opacity: 0.75;
+  background-image: url("../../../res.cloudinary.com/dhnw7pzb9/image/upload/v1744960254/Tangalle_Beach_o6jr14.jpg"); /* Set the image you want to keep */
+}
+
+/* Overlay Text and Button */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #012c60;
+}
+
+.overlay h2 {
+  font-size: 3rem;
+  font-weight: bold !important;
+  margin-bottom: 45px;
+  font-family: "Lato", sans-serif;
+}
+
+.book-tour-btn {
+  background-color: #012c60;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  font-size: 1.1rem; /* Adjust font size for better scaling */
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block; /* Ensures proper sizing */
+  transition: background-color 0.3s ease;
+}
+
+.book-tour-btn:hover {
+  background-color: #d48c2a;
+}
+
+@media (max-width: 768px) {
+  .book-tour-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-tour-btn {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+}
+
+/* Make the Image Container Responsive */
+@media screen and (max-width: 1024px) {
+  .image-container {
+    margin-top: 80px !important;
+    height: 340px !important; /* Adjust height for tablet screens */
+  }
+
+  .overlay h2 {
+    font-size: 1.5rem; /* Smaller font size for mobile devices */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-container {
+    margin-top: 80px;
+    height: 240px !important;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem; /* Adjust font size for smaller devices */
+  }
+
+  .book-tour-btn {
+    font-size: 1rem; /* Smaller button on small screens */
+  }
+}
+
+/* Top Destination Section */
+#top-destination {
+  background: url(../../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965957/watermarkwhite_gsxzae.png)
+    no-repeat center center;
+  scroll-margin-top: 160px; /* Adjust based on your header height */
+}
+
+/* Tour Packages Heading */
+#top-destination h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+  margin: 25px 0 10px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+/* Tour Packages Container */
+#top-destination .tour-packages-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 15px;
+  margin-top: 34px;
+  padding: 5px;
+  justify-items: center; /* Center items in grid */
+}
+
+/* Tour Card */
+#top-destination .tour-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px; /* Prevents oversized cards */
+  min-width: 250px; /* Ensures no tiny cards */
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+#top-destination .tour-card:hover {
+  transform: scale(1.05); /* Hover effect */
+}
+
+#top-destination .tour-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(54, 48, 48, 0.8);
+  background: white;
+}
+
+/* Tour Image Styling */
+#top-destination .tour-image {
+  height: 150px;
+  overflow: hidden;
+}
+
+#top-destination .tour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Tour Title */
+#top-destination .tour-title {
+  text-align: center;
+  color: #012c60;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+/* Make Links Block Level (Clickable Area) */
+#top-destination a {
+  display: block;
+  text-decoration: none;
+}
+
+#top-destination.second-section .tour-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  min-width: 250px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  padding-bottom: 15px; /* extra space for description */
+}
+
+#top-destination.second-section .tour-card:hover {
+  transform: scale(1.05); /* only zoom effect */
+}
+
+/* Image Styling */
+#top-destination.second-section .tour-image {
+  height: 150px;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#top-destination.second-section .tour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Title Styling */
+#top-destination.second-section .tour-title {
+  text-align: center;
+  font-size: 17px;
+  color: #012c60;
+  margin: 10px 0 5px 0;
+  margin-top: 1px;
+}
+
+/* Description Styling */
+#top-destination.second-section .tour-description {
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+  padding: 0 10px;
+  line-height: 1.3;
+}
+
+/* Remove previous wrong hover behaviors */
+#top-destination.second-section .tour-card .tour-title,
+#top-destination.second-section .tour-card .tour-description {
+  position: static; /* no absolute */
+  opacity: 1; /* always visible */
+  visibility: visible;
+  background: none; /* no dark background */
+}
+
+.tour-description p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* footer */
+footer {
+  background: url("../../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965662/waterma_lgv6hv.png")
+    no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 30px 20px; /* Adjust padding as needed */
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  position: relative; /* Changed from absolute to relative */
+  padding: 10px;
+  width: 140px; /* Adjusted the width as per your requirement */
+  height: auto; /* Keeps the aspect ratio of the logo */
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-logo img {
+  width: 240%; /* Ensure the image fills the container */
+  height: auto;
+  margin-top: -300px !important;
+  margin-left: -80px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: -5px !important;
+}
+
+.footer-social a {
+  color: white;
+}
+
+/* Footer Content Section */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  gap: 5;
+  text-align: center; /* Ensure text is centered */
+}
+
+.footer p a {
+  color: #ffffff;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer p a:active {
+  color: #f0a500; /* Optional color change on click */
+}
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+    font-size: 14px; /* Slightly smaller font size for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .footer-logo {
+    position: relative; /* Changed from absolute to relative */
+    padding: 10px;
+    width: 140px; /* Adjusted the width as per your requirement */
+    height: auto; /* Keeps the aspect ratio of the logo */
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .footer-logo img {
+    width: 240%; /* Ensure the image fills the container */
+    height: auto;
+    margin-top: -300px !important;
+    margin-left: -80px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-social a {
+    color: white;
+  }
+
+  /* Footer Content Adjustments */
+  .footer-content {
+    font-size: 14px; /* Adjust text size for mobile */
+    margin-top: 20px; /* Reduce margin-top */
+    line-height: 1.5;
+  }
+}

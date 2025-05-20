@@ -1,0 +1,890 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #012c60;
+  padding: 15px 50px;
+  color: white;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.header-logo img {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Navigation Links */
+.header-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header-links h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transition correctly to the entire link */
+.header-links h1 a {
+  text-decoration: none;
+  color: white;
+  display: inline-block; /* Ensures transform works properly */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.header-links h1 a:hover {
+  color: #e2ae3f;
+  transform: scale(1.1); /* Smooth zoom-in effect */
+}
+
+/* Hide Menu Toggle Checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .header-logo {
+    position: absolute;
+    left: 20px;
+  }
+
+  header {
+    height: 80px;
+    padding: 15px 50px;
+  }
+
+  /* Show Menu Icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hide Navigation Links Initially */
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: #012c60;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .header-links h1 {
+    margin: 10px 0;
+  }
+
+  /* Show Dropdown When Checkbox is Checked */
+  .menu-toggle:checked + .menu-icon + .header-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: -20px;
+  }
+}
+
+/* Image Section */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 440px; /* Default height for large screens */
+  margin-top: 90px; /* To ensure it appears below the header */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250%;
+  background-size: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+  background-position: center;
+  opacity: 0.75;
+  background-image: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1744002526/2_zzxxml.png"); /* Set the image you want to keep */
+}
+
+/* Overlay Text and Button */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #012c60;
+}
+
+.overlay h2 {
+  font-size: 3rem;
+  font-weight: bold !important;
+  margin-bottom: 45px;
+  font-family: "Lato", sans-serif;
+}
+
+.book-tour-btn {
+  background-color: #012c60;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  font-size: 1.1rem; /* Adjust font size for better scaling */
+  font-weight: bold;
+  border-radius: 5px;
+  display: inline-block; /* Ensures proper sizing */
+  transition: background-color 0.3s ease;
+}
+
+.book-tour-btn:hover {
+  background-color: #d48c2a;
+}
+
+@media (max-width: 768px) {
+  .book-tour-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-tour-btn {
+    font-size: 0.8rem;
+    padding: 8px 15px;
+  }
+}
+
+/* Make the Image Container Responsive */
+@media screen and (max-width: 1024px) {
+  .image-container {
+    margin-top: 80px !important;
+    height: 340px !important; /* Adjust height for tablet screens */
+  }
+
+  .overlay h2 {
+    font-size: 1.5rem; /* Smaller font size for mobile devices */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-container {
+    margin-top: 80px;
+    height: 240px !important;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem; /* Adjust font size for smaller devices */
+  }
+
+  .book-tour-btn {
+    font-size: 1rem; /* Smaller button on small screens */
+  }
+}
+
+.destination-guide {
+  background: #fff;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: -20px;
+}
+
+.content-block {
+  background-color: #fefefe;
+  padding: 2rem;
+  max-width: 1200px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.content-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.icon-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.icon-title i {
+  font-size: 1.8rem;
+  color: #f4a261;
+}
+
+.icon-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #012c60;
+  margin: 0;
+}
+
+.content-block p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in.delay {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .icon-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-block p {
+    font-size: 1rem;
+  }
+}
+
+.weather-overview {
+  padding: 4rem 1rem;
+  background: #f7faff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.weather-overview h2 {
+  font-size: 2rem;
+  color: #012c60;
+  margin-bottom: 1rem;
+  margin-top: -30px;
+}
+
+.weather-intro {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #333;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.weather-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.weather-card {
+  flex: 1 1 280px;
+  max-width: 350px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.weather-card h3 {
+  font-size: 1.4rem;
+  color: #012c60;
+  margin-bottom: 1rem;
+}
+
+.weather-card p,
+.weather-card ul {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.weather-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.weather-card ul li {
+  margin: 0.5rem 0;
+}
+
+/* Unique background tints */
+.weather-card.yala {
+  background: #fff7f4;
+}
+
+.weather-card.maha {
+  background: #eefffe;
+}
+
+.weather-card.best-time {
+  background: #e7edff;
+}
+.weather-icon {
+  font-size: 2.5rem;
+  color: #007acc;
+  margin-bottom: 1rem;
+}
+
+.weather-card.yala .weather-icon {
+  color: #febb56;
+}
+
+.weather-card.maha .weather-icon {
+  color: #53a7fb;
+}
+
+.weather-card.best-time .weather-icon {
+  color: #449849;
+}
+
+@media (max-width: 768px) {
+  .weather-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather-card {
+    width: 90%;
+  }
+}
+
+/* Top Destination Section */
+#top-destination {
+  background: url(../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965957/watermarkwhite_gsxzae.png)
+    no-repeat center center;
+  scroll-margin-top: 160px; /* Adjust based on your header height */
+  margin-top: 100px;
+}
+
+/* Tour Packages Heading */
+#top-destination h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+  margin: 25px 0 10px;
+  text-align: center;
+  margin-top: -120px;
+  margin-bottom: 30px;
+}
+
+.top-destination .month-highlight {
+  margin-bottom: -80px; /* Reduce space inside each section */
+}
+
+.month-highlight {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.month-highlight h3 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #012c60;
+  text-align: center;
+  margin-top: -15px;
+}
+
+.month-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.info-card {
+  flex: 1 1 250px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-card i {
+  font-size: 2rem;
+  color: #ff5722;
+  margin-bottom: 0.5rem;
+}
+
+.info-card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#top-destination p.top-destination {
+  font-size: 1.6rem;
+  color: #393939;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+/* Tour Packages Container */
+#top-destination .tour-packages-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 15px;
+  margin-top: 34px;
+  padding: 5px;
+  justify-items: center; /* Center items in grid */
+  margin-bottom: -20px !important;
+}
+
+/* Tour Card */
+#top-destination .tour-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px; /* Prevents oversized cards */
+  min-width: 250px; /* Ensures no tiny cards */
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+#top-destination .tour-card:hover {
+  transform: scale(1.05); /* Hover effect */
+}
+
+#top-destination .tour-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(54, 48, 48, 0.8);
+  background: white;
+}
+
+/* Tour Image Styling */
+#top-destination .tour-image {
+  height: 150px;
+  overflow: hidden;
+}
+
+#top-destination .tour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Tour Title */
+#top-destination .tour-title {
+  text-align: center;
+  color: #012c60;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+/* Make Links Block Level (Clickable Area) */
+#top-destination a {
+  display: block;
+  text-decoration: none;
+}
+
+.sri-lanka-top-places {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 33px;
+  color: #012c60;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+.section-title span {
+  color: #000000;
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.place-card {
+  background-size: cover;
+  background-position: center;
+  height: 210px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.place-card:hover {
+  transform: scale(1.03);
+}
+
+.image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.48; /* Only the image gets this opacity */
+}
+
+.place-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  text-align: left;
+}
+
+.place-content h3 {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+  color: #370606;
+}
+
+.place-content p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #000000;
+  font-weight: 600;
+}
+
+.view-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #012c60;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+
+.view-btn:hover {
+  background-color: #e2ae3f;
+}
+
+/* Why Book This Tour Section */
+.why-book {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+  margin-top: -50px;
+}
+
+.why-book h2 {
+  font-size: 35px;
+  color: #012c60;
+  margin-bottom: 40px;
+  margin-top: -10px;
+}
+
+/* Grid Layout */
+.why-book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Individual Item Styling */
+.why-book-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.why-book-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Icons */
+.why-book-item i {
+  font-size: 26px;
+  color: #ff6600;
+}
+.why-book-item p {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.trip-banner {
+  background-image: url("../../dxk1acp76n912.cloudfront.net/images/beach.jpg"); /* Beach-style image */
+  background-size: cover;
+  background-position: center;
+  padding: 30px 30px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 50px 0;
+  margin-top: 20px;
+}
+
+.trip-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+}
+
+.trip-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.trip-content p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trip-btn {
+  background-color: #012c60;
+  color: #ffffff;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Hover effect */
+.trip-btn:hover {
+  background-color: #e2ae3f;
+}
+
+/* Media query for tablets (≤768px) */
+@media (max-width: 768px) {
+  .trip-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Media query for mobile phones (≤480px) */
+@media (max-width: 480px) {
+  .trip-btn {
+    width: 100%;
+    padding: 12px 1px;
+    font-size: 1rem;
+  }
+}
+
+/* footer */
+footer {
+  background: url("../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742965662/waterma_lgv6hv.png")
+    no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 30px 20px; /* Adjust padding as needed */
+  text-align: center;
+  margin-top: 1px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  position: relative; /* Changed from absolute to relative */
+  padding: 10px;
+  width: 140px; /* Adjusted the width as per your requirement */
+  height: auto; /* Keeps the aspect ratio of the logo */
+  margin: 0 auto;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-logo img {
+  width: 240%; /* Ensure the image fills the container */
+  height: auto;
+  margin-top: -300px !important;
+  margin-left: -80px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: -5px !important;
+}
+
+.footer-social a {
+  color: white;
+}
+
+/* Footer Content Section */
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  gap: 5;
+  text-align: center; /* Ensure text is centered */
+}
+
+.footer p a {
+  color: #ffffff;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+
+.footer p a:active {
+  color: #f0a500; /* Optional color change on click */
+}
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+    font-size: 14px; /* Slightly smaller font size for mobile */
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .footer-logo {
+    position: relative; /* Changed from absolute to relative */
+    padding: 10px;
+    width: 140px; /* Adjusted the width as per your requirement */
+    height: auto; /* Keeps the aspect ratio of the logo */
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .footer-logo img {
+    width: 240%; /* Ensure the image fills the container */
+    height: auto;
+    margin-top: -300px !important;
+    margin-left: -80px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .footer-social a {
+    color: white;
+  }
+
+  /* Footer Content Adjustments */
+  .footer-content {
+    font-size: 14px; /* Adjust text size for mobile */
+    margin-top: 20px; /* Reduce margin-top */
+    line-height: 1.5;
+  }
+}

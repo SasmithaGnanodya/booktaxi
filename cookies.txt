@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.www.booksrilankataxi.com	TRUE	/	FALSE	1999999999	__cf_bm	tXWkJUND1hVOUF9xr9gDl5sW9m76IUnMSa59q_SDv6U-1747598655-1.0.1.1-jW9VrOHzcHi17.GNF1qbxLUtJynoKAfZgl1fPyltqZFe7o.QATSn8b05ARR4WVC77sURXNMjDrifFX8LE2oraEcqDxvo_fGqFzWAZjje3l0
+www.booksrilankataxi.com	TRUE	/	FALSE	1999999999	SameSite	None
+
