@@ -13,3 +13,12 @@
         box-shadow: 0 0 8px #E4AF3F(255, 65, 108, 0.8);
     }
 }
+/* Animations */
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+}

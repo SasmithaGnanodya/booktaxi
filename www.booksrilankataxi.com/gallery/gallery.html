@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - BookSriLankaTaxi</title>
+    
+    <link rel="icon" type="image/ico" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #012c60;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e2ae3f;
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            padding: 100px 20px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery-title h1 {
+            font-size: 2.5rem;
+            color: #012c60;
+            margin-bottom: 10px;
+        }
+
+        .gallery-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Masonry Grid */
+        .gallery-grid {
+            column-count: 4;
+            column-gap: 20px;
+            line-height: 0;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            break-inside: avoid;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            animation: zoomIn 0.3s ease-out;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: auto;
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .gallery-container {
+                padding: 80px 15px 30px;
+            }
+
+            .gallery-title h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                column-count: 2;
+                column-gap: 15px;
+            }
+
+            .gallery-item {
+                margin-bottom: 15px;
+            }
+
+            .lightbox-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev {
+                left: -60px;
+            }
+
+            .lightbox-next {
+                right: -60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                column-count: 1;
+            }
+
+            .lightbox-nav {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        .gallery-item {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742549835/IMG_2100_1_inuhhx.png" alt="BookSriLankaTaxi Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">THE BEST TAXIS IN SRI LANKA</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="../index.html#top-destination">TOP DESTINATIONS</a>
+                <a href="../contact-BookSriLankaTaxi/index.html">CONTACT US</a>
+                <a href="../terms-and-conditions/index.html">T&C</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Container -->
+    <div class="gallery-container">
+        <div class="gallery-title">
+            <h1>Our Gallery</h1>
+            <p>Discover the beauty of Sri Lanka through our collection</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery Items -->
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img src="images/g1.jpg" alt="Gallery Image 1">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img src="images/g2.jpg" alt="Gallery Image 2">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img src="images/g3.jpg" alt="Gallery Image 3">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img src="images/g4.jpg" alt="Gallery Image 4">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img src="images/g5.jpg" alt="Gallery Image 5">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img src="images/g6.jpg" alt="Gallery Image 6">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(6)">
+                <img src="images/g7.jpg" alt="Gallery Image 7">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(7)">
+                <img src="images/g8.jpg" alt="Gallery Image 8">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(8)">
+                <img src="images/g9.jpg" alt="Gallery Image 9">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(9)">
+                <img src="images/g10.jpg" alt="Gallery Image 10">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(10)">
+                <img src="images/g11.jpg" alt="Gallery Image 11">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(11)">
+                <img src="images/g12.jpg" alt="Gallery Image 12">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(12)">
+                <img src="images/g13.jpg" alt="Gallery Image 13">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(13)">
+                <img src="images/g14.jpg" alt="Gallery Image 14">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(14)">
+                <img src="images/g15.jpg" alt="Gallery Image 15">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(15)">
+                <img src="images/g16.jpg" alt="Gallery Image 16">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(16)">
+                <img src="images/g17.jpg" alt="Gallery Image 17">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(17)">
+                <img src="images/g18.jpg" alt="Gallery Image 18">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(18)">
+                <img src="images/g19.jpg" alt="Gallery Image 19">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(19)">
+                <img src="images/g20.jpg" alt="Gallery Image 20">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(20)">
+                <img src="images/g21.jpg" alt="Gallery Image 21">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(21)">
+                <img src="images/g22.jpg" alt="Gallery Image 22">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(22)">
+                <img src="images/g23.jpg" alt="Gallery Image 23">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav lightbox-prev" onclick="prevImage()">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">&#8250;</button>
+            <img id="lightboxImage" src="" alt="">
+            <div class="lightbox-counter" id="lightboxCounter">1 / 23</div>
+        </div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const totalImages = 23;
+
+        // Image paths array
+        const imagePaths = [];
+        for (let i = 1; i <= totalImages; i++) {
+            imagePaths.push(`images/g${i}.jpg`);
+        }
+
+        // Open lightbox
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = imagePaths[index];
+            lightboxImage.alt = `Gallery Image ${index + 1}`;
+            lightboxCounter.textContent = `${index + 1} / ${totalImages}`;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Previous image
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+            updateLightboxImage();
+        }
+
+        // Next image
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % totalImages;
+            updateLightboxImage();
+        }
+
+        // Update lightbox image
+        function updateLightboxImage() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = imagePaths[currentImageIndex];
+            lightboxImage.alt = `Gallery Image ${currentImageIndex + 1}`;
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        prevImage();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                }
+            }
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (touchEndX < touchStartX - 50) {
+                    nextImage(); // Swipe left - next image
+                }
+                if (touchEndX > touchStartX + 50) {
+                    prevImage(); // Swipe right - previous image
+                }
+            }
+        }
+
+        // Close lightbox when clicking outside image
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Preload images for better performance
+        function preloadImages() {
+            imagePaths.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            preloadImages();
+        });
+
+        // Handle image loading errors
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                this.alt = 'Image not found';
+            });
+        });
+    </script>
+</body>
+</html>

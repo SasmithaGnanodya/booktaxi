@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BookSriLankaTaxi</title>
+    
+    <meta name="description" content="Contact BookSriLankaTaxi - Best taxi service in Sri Lanka. WhatsApp, Viber, Telegram and Email support available.">
+    <meta name="keywords" content="contact BookSriLankaTaxi, Sri Lanka taxi contact, WhatsApp taxi booking">
+    
+    <link rel="icon" type="image/ico" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: #012c60;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e2ae3f;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #012c60 0%, #1a4480 100%);
+            color: white;
+            text-align: center;
+            padding: 150px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1.8" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(226,174,63,0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .contact-card:hover::before {
+            left: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .contact-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .whatsapp .contact-icon {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .viber .contact-icon {
+            background: linear-gradient(135deg, #665CAC, #59267C);
+        }
+
+        .telegram .contact-icon {
+            background: linear-gradient(135deg, #0088cc, #229ED9);
+        }
+
+        .email .contact-icon {
+            background: linear-gradient(135deg, #EA4335, #FBBC04);
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Logo Images */
+        .contact-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .email .contact-icon img {
+            filter: none;
+        }
+
+        /* Alternative Font Awesome Icons as Backup */
+        .contact-icon i {
+            font-size: 3.5rem;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #012c60;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #012c60;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .whatsapp .contact-link {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .viber .contact-link {
+            background: linear-gradient(135deg, #665CAC, #59267C);
+        }
+
+        .telegram .contact-link {
+            background: linear-gradient(135deg, #0088cc, #005577);
+        }
+
+        .email .contact-link {
+            background: linear-gradient(135deg, #012c60, #1a4480);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-link i {
+            margin-right: 8px;
+        }
+
+        /* Footer Info */
+        .footer-info {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-info h3 {
+            color: #012c60;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .footer-info .highlight {
+            color: #012c60;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-section {
+                padding: 60px 15px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-card {
+                padding: 30px 20px;
+            }
+
+            .contact-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .contact-icon svg {
+                width: 45px;
+                height: 45px;
+            }
+
+            .footer-info {
+                padding: 30px 20px;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-title {
+                font-size: 1.3rem;
+            }
+
+            .contact-info {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation */
+        .contact-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .contact-card:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card:nth-child(2) { animation-delay: 0.2s; }
+        .contact-card:nth-child(3) { animation-delay: 0.3s; }
+        .contact-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="../../res.cloudinary.com/dhnw7pzb9/image/upload/v1742549835/IMG_2100_1_inuhhx.png" alt="BookSriLankaTaxi Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">THE BEST TAXIS IN SRI LANKA</a>
+                <a href="../gallery/gallery.html">GALLERY</a>
+                <a href="../index.html#top-destination">TOP DESTINATIONS</a>
+                <a href="index.html">CONTACT US</a>
+                <a href="../terms-and-conditions/index.html">T&C</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>Get in touch with BookSriLankaTaxi for the best taxi service in Sri Lanka</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- WhatsApp -->
+            <div class="contact-card whatsapp">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" width="60" height="60" fill="white">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+                    </svg>
+                </div>
+                <h3 class="contact-title">WhatsApp</h3>
+                <p class="contact-info">+94 71 2288 089</p>
+                <a href="https://wa.me/94712288089" class="contact-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Message Us
+                </a>
+            </div>
+
+            <!-- Viber -->
+            <div class="contact-card viber">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" width="60" height="60" fill="white">
+                        <path d="M11.398.002C9.473.028 5.331.344 3.014 2.467.696 4.589.029 8.772.012 11.638c-.018 2.866.862 5.532 1.851 6.992v2.847c0 .32.263.583.583.583.154 0 .3-.061.41-.17l2.116-2.1c1.261.274 2.588.385 3.426.385 4.024 0 7.292-.554 9.838-2.103 2.546-1.549 3.754-3.853 3.754-6.836 0-2.983-1.208-5.287-3.754-6.836C15.69.551 13.422.002 11.398.002zm8.676 10.641c-.017 2.384-.931 4.285-2.964 5.462-2.033 1.178-4.749 1.717-8.11 1.717-.644 0-1.847-.088-2.956-.33l-.257-.056-1.336 1.328v-1.667l-.203-.135c-.777-1.161-1.606-3.468-1.591-5.819.015-2.351.898-5.718 2.61-7.303 1.713-1.584 5.439-1.857 7.233-1.88 1.793-.024 5.52.249 7.233 1.833 1.713 1.585 2.598 4.952 2.583 7.303-.001.189-.016.378-.042.567z"/>
+                    </svg>
+                </div>
+                <h3 class="contact-title">Viber</h3>
+                <p class="contact-info">+94 71 2288 089</p>
+                <a href="viber://chat?number=%2B94712288089" class="contact-link">
+                    <i class="fab fa-viber"></i> Connect
+                </a>
+            </div>
+
+            <!-- Telegram -->
+            <div class="contact-card telegram">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" width="60" height="60" fill="white">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                </div>
+                <h3 class="contact-title">Telegram</h3>
+                <p class="contact-info">+94 71 2288 089</p>
+                <a href="https://t.me/+94712288089" class="contact-link" target="_blank">
+                    <i class="fab fa-telegram"></i> Chat Now
+                </a>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-card email">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" width="60" height="60">
+                        <path fill="#EA4335" d="M5 7h14l-7 5z"/>
+                        <path fill="#FBBC04" d="M5 7v10h4V12z"/>
+                        <path fill="#34A853" d="M15 12v5h4V7z"/>
+                        <path fill="#4285F4" d="M5 17h14v-5H5z"/>
+                    </svg>
+                </div>
+                <h3 class="contact-title">Email</h3>
+                <p class="contact-info">booksrilankataxi.main@gmail.com</p>
+                <a href="mailto:booksrilankataxi.main@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email Us
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="footer-info">
+            <h3>BookSriLankaTaxi</h3>
+            <p><span class="highlight">Phone:</span> +94 71 2288 089</p>
+            <p><span class="highlight">Email:</span> booksrilankataxi.main@gmail.com</p>
+            <p><span class="highlight">Service:</span> Best Taxi Service in Sri Lanka</p>
+            <p><span class="highlight">Available:</span> 24/7 Customer Support</p>
+        </div>
+    </section>
+
+    <script>
+        // Add click tracking for analytics (optional)
+        document.querySelectorAll('.contact-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const platform = this.closest('.contact-card').className.split(' ')[1];
+                console.log(`Contact attempted via: ${platform}`);
+                
+                // Add a subtle animation feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Add phone number click-to-copy functionality
+        document.querySelectorAll('.contact-info').forEach(info => {
+            if (info.textContent.includes('+94712288089')) {
+                info.style.cursor = 'pointer';
+                info.title = 'Click to copy phone number';
+                
+                info.addEventListener('click', function() {
+                    navigator.clipboard.writeText('+94712288089').then(() => {
+                        // Show temporary feedback
+                        const originalText = this.textContent;
+                        this.textContent = 'Phone number copied!';
+                        this.style.color = '#28a745';
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.style.color = '';
+                        }, 2000);
+                    });
+                });
+            }
+        });
+
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

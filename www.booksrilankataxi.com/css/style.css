@@ -1475,3 +1475,48 @@ footer {
     font-size: 16px;
   }
 }
+:root {
+  --root-blue: #012c60; /* Define your root blue color */
+}
+/* Gallery Section */
+.gallery-section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #012c60;
+  padding: 20px 0;
+}
+
+.gallery-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 12px;
+  animation: scroll-left 18s linear infinite;
+}
+
+.gallery-item img {
+  width: auto;
+  height: 300px; /* Ensures all images have a portrait aspect ratio */
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.4);
+}
+
+/* Smooth scrolling animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
