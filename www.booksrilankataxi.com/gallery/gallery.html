@@ -353,76 +353,28 @@
         </div>
 
         <div class="gallery-grid" id="galleryGrid">
-            <!-- Gallery Items -->
-            <div class="gallery-item" onclick="openLightbox(0)">
-                <img src="images/g1.jpg" alt="Gallery Image 1">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(1)">
-                <img src="images/g2.jpg" alt="Gallery Image 2">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(2)">
-                <img src="images/g3.jpg" alt="Gallery Image 3">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(3)">
-                <img src="images/g4.jpg" alt="Gallery Image 4">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(4)">
-                <img src="images/g5.jpg" alt="Gallery Image 5">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(5)">
-                <img src="images/g6.jpg" alt="Gallery Image 6">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(6)">
-                <img src="images/g7.jpg" alt="Gallery Image 7">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(7)">
-                <img src="images/g8.jpg" alt="Gallery Image 8">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(8)">
-                <img src="images/g9.jpg" alt="Gallery Image 9">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(9)">
-                <img src="images/g10.jpg" alt="Gallery Image 10">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(10)">
-                <img src="images/g11.jpg" alt="Gallery Image 11">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(11)">
-                <img src="images/g12.jpg" alt="Gallery Image 12">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(12)">
-                <img src="images/g13.jpg" alt="Gallery Image 13">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(13)">
-                <img src="images/g14.jpg" alt="Gallery Image 14">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(14)">
-                <img src="images/g15.jpg" alt="Gallery Image 15">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(15)">
-                <img src="images/g16.jpg" alt="Gallery Image 16">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(16)">
-                <img src="images/g17.jpg" alt="Gallery Image 17">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(17)">
-                <img src="images/g18.jpg" alt="Gallery Image 18">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(18)">
-                <img src="images/g19.jpg" alt="Gallery Image 19">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(19)">
-                <img src="images/g20.jpg" alt="Gallery Image 20">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(20)">
-                <img src="images/g21.jpg" alt="Gallery Image 21">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(21)">
-                <img src="images/g22.jpg" alt="Gallery Image 22">
-            </div>
-            <div class="gallery-item" onclick="openLightbox(22)">
-                <img src="images/g23.jpg" alt="Gallery Image 23">
-            </div>
+            <!-- Gallery Items to add images just rename and update 77--> 
+            <script>
+                function generateGallery() {
+                    let galleryContainer = document.getElementById("gallery");
+                    for (let i = 0; i < 77; i++) {
+                        let div = document.createElement("div");
+                        div.className = "gallery-item";
+                        div.setAttribute("onclick", `openLightbox(${i})`);
+                        
+                        let img = document.createElement("img");
+                        img.src = `images/g${i + 1}.jpg`;
+                        img.alt = `Gallery Image ${i + 1}`;
+                        
+                        div.appendChild(img);
+                        galleryContainer.appendChild(div);
+                    }
+                }
+            
+                window.onload = generateGallery;
+            </script>
+            
+            <div id="gallery"></div>
         </div>
     </div>
 
@@ -433,13 +385,13 @@
             <button class="lightbox-nav lightbox-prev" onclick="prevImage()">&#8249;</button>
             <button class="lightbox-nav lightbox-next" onclick="nextImage()">&#8250;</button>
             <img id="lightboxImage" src="" alt="">
-            <div class="lightbox-counter" id="lightboxCounter">1 / 23</div>
+            <div class="lightbox-counter" id="lightboxCounter">1 / 77</div> <!--need to change this 77 after add images-->
         </div>
     </div>
-
+<!--need to change this 77 after add images-->
     <script>
         let currentImageIndex = 0;
-        const totalImages = 23;
+        const totalImages = 77; 
 
         // Image paths array
         const imagePaths = [];
@@ -562,5 +514,6 @@
             });
         });
     </script>
+    
 </body>
 </html>
