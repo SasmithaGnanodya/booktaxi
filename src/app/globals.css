@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%; /* Very Dark Blue/Almost Black */
+    --foreground: 0 0% 98%; /* Off-white */
+
+    --card: 240 9% 10%; /* Slightly lighter than secondary, dark card */
+    --card-foreground: 0 0% 95%; /* Light text on card */
+
+    --popover: 240 9% 10%; /* Consistent with card */
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 260 70% 55%; /* Vibrant Purple */
+    --primary-foreground: 0 0% 98%; /* White text on primary */
+
+    --secondary: 240 8% 12%; /* Darker gray, subtle contrast to background */
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 240 5% 25%; /* Muted tones, slightly lighter than secondary */
+    --muted-foreground: 0 0% 60%; /* Muted text */
+
+    --accent: 330 100% 60%; /* Bright Pink/Magenta */
+    --accent-foreground: 0 0% 10%; /* Dark text on accent for contrast */
+
+    --destructive: 0 62.8% 50.6%; /* Vivid Red for destructive actions */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 20%; /* Subtle border, slightly lighter than card */
+    --input: 240 5% 22%; /* Input fields, slightly lighter than border */
+    --ring: 330 100% 60%; /* Accent color for rings/focus states */
+
+    --radius: 0.75rem; /* Slightly larger radius for a modern feel */
+
+    /* Chart colors - vibrant and contrasting for dark theme */
+    --chart-1: 200 100% 50%; /* Bright Cyan */
+    --chart-2: 150 100% 45%; /* Bright Green */
+    --chart-3: 50 100% 55%;  /* Bright Yellow/Orange */
+    --chart-4: 280 100% 65%; /* Bright Lavender */
+    --chart-5: 0 100% 60%;   /* Bright Red */
+
+    /* Sidebar variables - themed for consistency */
+    --sidebar-background: 240 10% 6%; /* Slightly lighter than main bg */
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 330 100% 60%; /* Accent for sidebar primary */
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 240 8% 15%; /* Darker accent for sidebar */
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 5% 25%;
+    --sidebar-ring: 330 100% 60%;
+  }
+
+  /* Define .dark variables to match the root, as the theme is inherently dark */
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 9% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 9% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 260 70% 55%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 8% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 240 5% 25%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 330 100% 60%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 20%;
+    --input: 240 5% 22%;
+    --ring: 330 100% 60%;
+
+    --chart-1: 200 100% 50%;
+    --chart-2: 150 100% 45%;
+    --chart-3: 50 100% 55%;
+    --chart-4: 280 100% 65%;
+    --chart-5: 0 100% 60%;
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 330 100% 60%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 240 8% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 5% 25%;
+    --sidebar-ring: 330 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px; /* Adjust this value to match actual sticky header height */
+  }
+  body {
+    /* Removed bg-background, will be applied as bg-transparent in layout.tsx */
+    @apply text-foreground;
+    font-family: var(--font-montserrat), sans-serif; /* Ensures Montserrat is the base font */
+  }
+}
+
+/* Scroll-triggered animation styles */
+.scroll-animated-item {
+  opacity: 0;
+  transform: translateY(60px); /* Increased from 50px for more impact */
+  transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smoother ease-out, increased duration */
+  transition-delay: 0.1s; 
+}
+
+.scroll-animated-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Initial load animation styles */
+.load-animated-item {
+  opacity: 0;
+  transform: translateY(50px); /* Increased from 40px for more impact */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Increased duration */
+}
+
+.load-animated-item.is-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
